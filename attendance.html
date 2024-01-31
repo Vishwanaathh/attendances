@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <style>
+        #inp2{
+            width:250px;
+            margin-top:10px;
+        }
+        #inp{
+            width:250px;
+            margin-top:10px;
+        }
+        #inp3{
+            margin-top:10px;
+        }
+        #inp4{
+            margin-top:10px;
+
+        }
+        body{
+            background-color:#B9D9EB;
+            font-family:cursive;
+            text-align: center;
+            justify-content: center;
+            color:darkred;
+            
+
+        }
+        button{
+            width:250px;
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Attendance Buddy <i class="fa-solid fa-calendar-days"></i></h1>
+    <h3>If you already have  100% <i class="fa-solid fa-crown"></i></h3>
+    <input type="text" placeholder="Enter attended classes" id="inp"><br>
+    <input type="text" placeholder="classes left" id="inp2"><br>
+    <Button onclick="predict()">Predict</Button>
+    <div id="msg"></div>
+    <div id="msg2"></div>
+    <hr>
+    <h3>If your attendance is less than hundred <i class="fa-solid fa-ghost"></i></h3>
+    <input type="text" placeholder="Enter conducted classes" id="inp3"><br>
+    <input type="text" placeholder="attendance at present" id="inp4"><br>
+    <Button onclick="predict2()">Predict</Button>
+    <div id="msg3"></div>
+    <div id="msg4"></div>
+
+    
+</body>
+<script>
+    function predict(){
+    const att=parseInt(document.getElementById("inp").value);
+    const lff=parseInt(document.getElementById("inp2").value);
+    console.log(att);
+    console.log(lff);
+
+    
+    const x=att/3;
+    const sum=att+lff;
+    console.log(sum);
+    const xx=att/sum;
+    const b=document.getElementById("msg");
+    const bb=document.getElementById("msg2");
+    b.innerText=`you can leave ${x} classes for 75 percent attendance`;
+    bb.innerText=`your attendance at end will be ${xx*100}% if you dont attend any classes`;
+  
+    }
+    function predict2(){
+    const att=parseInt(document.getElementById("inp3").value);
+    const lff=parseInt(document.getElementById("inp4").value);
+    console.log(att);
+    console.log(lff);
+
+    
+    const x=((300*att)-4*att*lff)/100
+    const xx=Math.floor(x) +1;
+    
+
+    
+    const b=document.getElementById("msg3");
+
+    b.innerText=`you have to attend ${xx} classes for 75%`;
+
+    }
+
+</script>
+</html>
